@@ -7,16 +7,16 @@
   */
 
 namespace modules\demo;
-
+use Yii;
 
 class Module extends \yii\base\Module
 {
     public $layout = "main";
-    public $controllerNamespace = 'modules\demo\controllers';
+    public $controllerNamespace = 'demo\controllers';
 
     public function init()
     {
         parent::init();
-        //do something init here
+        \Yii::setAlias("demo", __DIR__);
     }
 } 

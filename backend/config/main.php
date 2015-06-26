@@ -14,6 +14,7 @@ return [
     'bootstrap' => ['log'],
     'defaultRoute' => 'demo/site/index',
     'modules' => $modules,
+    'language' => 'zh-CN',
     'components' => [
         'urlManager'=>[
             'enablePrettyUrl'  => true,

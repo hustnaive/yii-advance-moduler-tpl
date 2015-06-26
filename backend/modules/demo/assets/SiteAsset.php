@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace backend\assets\demo;
+namespace demo\assets;
 
 use yii\web\AssetBundle;
 
@@ -15,15 +15,17 @@ use yii\web\AssetBundle;
  */
 class SiteAsset extends AssetBundle
 {
-    public $basePath = '@webroot';
-    public $baseUrl = '@web';
+    public $basePath = '@webroot/demo';
+    public $baseUrl = '@web/demo';
+    
     public $css = [
         'css/site.css',
     ];
+    
     public $js = [
     ];
+    
     public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
+        'backend\assets\BackendAsset',
     ];
 }

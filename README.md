@@ -57,7 +57,7 @@
 		|-- tests/							测试代码目录
 		|-- docs/							项目开发文档
 		|-- .gitignore
-		|-- init.php
+		|-- init
 		|-- init.bat
 		|-- READEME.md
 
@@ -73,10 +73,20 @@
 * PHP版本，5.5.15（ 推荐xampp-1.8.3：<http://sourceforge.net/projects/xampp/files/> ）
 * 安装git（ 推荐msysgit：<http://msysgit.github.io/> ）
 * 安装ZendStudio或者其他IDE
-* 给init.bat可执行权限，执行init.bat。init.bat执行的操作如下
+* 执行如下步骤
 	* git clone vendors，拖取公用依赖包。
-	* php init.php 执行php环境的初始化（验证扩展，依赖是否存在，进行环境初始化）。
-	* init.bat可要可不要
+	* php requirement.php 验证扩展，依赖是否存在
+	* php init 执行php环境的初始化
+
+# 命名空间
+
+* `@common` => `common/`
+* `@frontend` => `frontend/`
+* `@backend` => `backend/`
+* `@console` => `console/`
+* `@dals` => `common/dals`
+* `@srvs` => `common/srvs`
+* `@modules` => 针对frontend，为`frontend/modules/`；针对backend，为`backend/modules/`
 
 # 提交代码
 
