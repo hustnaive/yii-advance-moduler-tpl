@@ -1,5 +1,5 @@
 <?php
-use backend\assets\AppAsset;
+use backend\assets\demo\SiteAsset;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -9,7 +9,7 @@ use common\widgets\Alert;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-AppAsset::register($this);
+SiteAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
