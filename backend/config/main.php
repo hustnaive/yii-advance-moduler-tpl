@@ -6,16 +6,23 @@ $params = array_merge(
     require(__DIR__ . '/params-local.php')
 );
 
+$modules = require(__DIR__ . '/modules.php');
+
 return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
-    'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'defaultRoute' => 'demo/site/index',
+    'modules' => $modules,
     'components' => [
+        'urlManager'=>[
+            'enablePrettyUrl'  => true,
+            'showScriptName' => false,
+        ],
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'common\models\FakeUser',
             'enableAutoLogin' => true,
+            'loginUrl'=> ['demo/site/login']
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -27,7 +34,7 @@ return [
             ],
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'demo/site/error',
         ],
     ],
     'params' => $params,
