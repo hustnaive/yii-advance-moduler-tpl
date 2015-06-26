@@ -2,6 +2,7 @@
 
 	prjroot/
 		|-- backend/					后端功能
+			|-- assets/ 				后端通用assets
 			|-- config/					后端配置
 				|-- web.php				web配置文件（线上生产/预发布）
 				|-- db.php				数据库配置
@@ -9,6 +10,7 @@
 				|-- params.php			公用参数配置文件
 			|-- modules/
 					|-- module1/
+						|-- assets/			模块assets
 						|-- controllers/	模块1的控制器
 						|-- views/			模块1的views
 						|-- model/			模块1的模型（userform等）
@@ -38,6 +40,7 @@
 				|-- ...
 			|-- srvs/						services层目录
 				|-- logic1/					业务1service逻辑
+			|-- views/					通用的模板
 		|-- console/						命令行代码目录（后台作业等）
 			|-- config/						配置
 			|-- controllers/				后台作业控制器代码
