@@ -88,6 +88,7 @@
 * `@srvs` => `common/srvs`
 * `@modules` => 针对frontend，为`frontend/modules/`；针对backend，为`backend/modules/`
 
+* `@modulename`，针对某模块内部引用，采用`@modulename`直接引用。如果跨模块，请`@modules\modulename`方式。
 # 提交代码
 
 * git pull 拖取最新版本的代码
