@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\models;
+namespace modules\demo\models;
 
 use Yii;
 use yii\base\Model;
@@ -27,7 +27,7 @@ class ContactForm extends Model
             // email has to be a valid email address
             ['email', 'email'],
             // verifyCode needs to be entered correctly
-            ['verifyCode', 'captcha'],
+            ['verifyCode', 'captcha', 'captchaAction'=>'demo/site/captcha'],
         ];
     }
 
@@ -49,11 +49,12 @@ class ContactForm extends Model
      */
     public function sendEmail($email)
     {
-        return Yii::$app->mailer->compose()
-            ->setTo($email)
-            ->setFrom([$this->email => $this->name])
-            ->setSubject($this->subject)
-            ->setTextBody($this->body)
-            ->send();
+        return true;
+//         return Yii::$app->mailer->compose()
+//             ->setTo($email)
+//             ->setFrom([$this->email => $this->name])
+//             ->setSubject($this->subject)
+//             ->setTextBody($this->body)
+//             ->send();
     }
 }

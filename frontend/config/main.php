@@ -6,14 +6,22 @@ $params = array_merge(
     require(__DIR__ . '/params-local.php')
 );
 
+$modules = require(__DIR__ . '/modules.php');
+
 return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'controllerNamespace' => 'frontend\controllers',
+    'defaultRoute' => 'demo/site/index',
+    'modules' => $modules,
+    'language' => 'zh-CN',
     'components' => [
+        'urlManager'=>[
+            'enablePrettyUrl'  => true,
+            'showScriptName' => false,
+        ],
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'common\models\FakeUser',
             'enableAutoLogin' => true,
         ],
         'log' => [
@@ -26,7 +34,7 @@ return [
             ],
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'demo/site/error',
         ],
     ],
     'params' => $params,

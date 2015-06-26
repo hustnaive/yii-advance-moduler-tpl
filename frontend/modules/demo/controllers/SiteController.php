@@ -1,12 +1,12 @@
 <?php
-namespace frontend\controllers;
+namespace modules\demo\controllers;
 
 use Yii;
 use common\models\LoginForm;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
-use frontend\models\ContactForm;
+use modules\demo\models\PasswordResetRequestForm;
+use modules\demo\models\ResetPasswordForm;
+use modules\demo\models\SignupForm;
+use modules\demo\models\ContactForm;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
@@ -88,7 +88,8 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            \Yii::$app->session->setFlash('success', '登录成功');
+            return $this->redirect(['site/index']);
         } else {
             return $this->render('login', [
                 'model' => $model,
