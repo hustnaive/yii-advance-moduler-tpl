@@ -40,7 +40,7 @@
 				|-- ...
 			|-- srvs/						services层目录
 				|-- logic1/					业务1service逻辑
-			|-- views/					通用的模板
+			|-- views/					前后端通用模板
 		|-- console/						命令行代码目录（后台作业等）
 			|-- config/						配置
 			|-- controllers/				后台作业控制器代码
