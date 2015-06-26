@@ -74,9 +74,9 @@
 * 安装git（ 推荐msysgit：<http://msysgit.github.io/> ）
 * 安装ZendStudio或者其他IDE
 * 执行如下步骤
-	* git clone vendors，拖取公用依赖包。
-	* php requirement.php 验证扩展，依赖是否存在
-	* php init 执行php环境的初始化
+	* git clone git@github.com:hustnaive/yii-advanced-modular-vendor.git vendors，拖取公用依赖包到项目目录。
+	* php requirement.php 验证扩展，依赖是否存在。
+	* php init 执行php环境的初始化。
 
 # 命名空间
 
