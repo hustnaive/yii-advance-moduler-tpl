@@ -2,3 +2,5 @@
 /unit/UnitTester.php
 /functional/FunctionalTester.php
 /acceptance/AcceptanceTester.php
+acceptance.suite.yml
+codeception.yml
