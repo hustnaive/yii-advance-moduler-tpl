@@ -118,7 +118,7 @@ composer安装成功后，在项目根目录执行如下命令安装CodeCeption�
 	composer global require "codeception/verify=*"
 	composer require --dev yiisoft/yii2-faker:*
 
-## 运行测试
+## 开始测试
 
 在运行测试之前，需要修改`tests/codeception/*`目录中的配置文件，将端口，路径什么的修改为本地的配置。具体修改点如下：
 
@@ -128,7 +128,11 @@ composer安装成功后，在项目根目录执行如下命令安装CodeCeption�
 * 修改`tests/codeception/frontend/acceptance.suite.yml`中的`url`字段
 * 修改`tests/codeception/frontend/codeception.yml`中的`test_entry_url`字段
 
-修改了对应配置后，还需要在本地创建`yii2_advanced_test`库用于测试。
+修改了配置后，还需要在本地创建`yii2_advanced_test`库，并创建初始表用于测试：
+
+	cd tests/codeception/bin
+	yii migration
+
 
 `tests/codeception/backend`和`tests/codeceptin/frontend`里面分别是针对后台和前端模块的的测试代码。
 
@@ -136,12 +140,30 @@ composer安装成功后，在项目根目录执行如下命令安装CodeCeption�
 
 ## 单元测试
 
-单元测试代码置于`tests/codeception/*end/unit/modulename`目录。
+你可以执行如下指令执行示例测试代码：
 
+	cd tests/codeception/frontend
+	codecept build
+    codecept run unit
 
+`codecept build`用于创建测试类，它会在当前目录创建*tester.php文件。
 
-
+你自己编写的测试用例置于`tests/codeception/*end/unit/modulename`目录，CodeCeption会自动到该目录下找以Test.php结尾的代码文件作为测试代码。
 
 ## 功能测试
+
+你可以执行如下指令执行示例测试代码：
+
+	cd tests/codeception/frontend
+	codecept build
+    codecept run functional
+
+`codecept build`用于创建测试类，它会在当前目录创建*tester.php文件。
+
+你自己编写的测试用例置于`tests/codeception/*end/functional/modulename`目录，CodeCeption会自动到该目录下找以Cest.php/Cest.php结尾的代码文件作为测试代码。
+
+## Migration
+
+## Fixtrue
 
 # FAQ
