@@ -4,10 +4,14 @@
 		|-- backend/					后端功能
 			|-- assets/ 				后端通用assets
 			|-- config/					后端配置
+				|-- bootstrap.php		启动时需要执行的引导动作
 				|-- web.php				web配置文件（线上生产/预发布）
+				|-- web-local.php		web本地配置文件
 				|-- db.php				数据库配置
+				|-- db-local.php		数据库本地配置
 				|-- modules.php			模块配置文件
 				|-- params.php			公用参数配置文件
+				|-- params-local.php	本地公用参数配置
 			|-- modules/
 					|-- module1/
 						|-- assets/			模块assets
@@ -40,7 +44,9 @@
 				|-- ...
 			|-- srvs/						services层目录
 				|-- logic1/					业务1service逻辑
-			|-- views/					前后端通用模板
+			|-- views/						前后端通用模板
+			|-- models/						前后端通用模型（Form）
+			|-- widgets/					前后端通用widget
 		|-- console/						命令行代码目录（后台作业等）
 			|-- config/						配置
 			|-- controllers/				后台作业控制器代码

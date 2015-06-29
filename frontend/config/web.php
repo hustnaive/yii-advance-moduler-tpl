@@ -1,4 +1,5 @@
 <?php
+
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/../../common/config/params-local.php'),
@@ -7,6 +8,11 @@ $params = array_merge(
 );
 
 $modules = require(__DIR__ . '/modules.php');
+
+$db = array_merge(
+    require(__DIR__ . '/db.php'),
+    require(__DIR__ . '/db-local.php')
+);
 
 return [
     'id' => 'app-frontend',
