@@ -76,10 +76,11 @@
 * PHP版本，5.5.15（ 推荐xampp-1.8.3：<http://sourceforge.net/projects/xampp/files/> ）
 * 安装git（ 推荐msysgit：<http://msysgit.github.io/> ）
 * 安装ZendStudio或者其他IDE
-* 执行如下步骤
-	* git clone git@github.com:hustnaive/yii-advanced-modular-vendor.git vendors，拖取公用依赖包到项目目录。
-	* php requirement.php 验证扩展，依赖是否存在。
-	* php init 执行php环境的初始化。
+* 执行init.bat脚本文件，该脚本依序如下步骤
+	* `git clone git@github.com:hustnaive/yii-advanced-modular-vendor.git vendor` 拖取公用依赖包到项目下的vendor目录。
+	* `php requirement.php` 验证扩展，依赖是否存在。
+	* `php init` 执行php环境的初始化。
+* 将 `backend/web` 和 `frontend/web` 分别配置到你的webroot下
 
 # 命名空间
 

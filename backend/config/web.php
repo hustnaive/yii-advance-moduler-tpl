@@ -1,9 +1,15 @@
 <?php
+
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/../../common/config/params-local.php'),
     require(__DIR__ . '/params.php'),
     require(__DIR__ . '/params-local.php')
+);
+
+$db = array_merge(
+    require(__DIR__ . '/db.php'),
+    require(__DIR__ . '/db-local.php')
 );
 
 $modules = require(__DIR__ . '/modules.php');
@@ -16,6 +22,7 @@ return [
     'modules' => $modules,
     'language' => 'zh-CN',
     'components' => [
+        'db' => $db,
         'urlManager'=>[
             'enablePrettyUrl'  => true,
             'showScriptName' => false,

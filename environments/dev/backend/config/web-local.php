@@ -1,5 +1,7 @@
 <?php
 
+//你可以通过改写本配置文件以覆盖web.php里面的配置
+
 $config = [
     'components' => [
         'request' => [
