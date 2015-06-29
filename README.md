@@ -72,9 +72,8 @@
 
 # 注
 * 前后端分离，前端功能（微信，轻应用）相关的代码逻辑置于frontend下面，后端管理（后台管理，配置）相关的代码逻辑置于backend下面。frontend/web,backend/web需要分别配置。
-* 所有的环境相关代码在代码结构里面不入版本库，由environment统一管理，如果需要修改线上环境，请在environment中对应修改。这些文件通过初始化脚本init.php创建（拉下代码后，执行php init.php）
+* 所有的环境相关代码（*-local.php）在代码结构里面不入版本库，由environment统一管理，如果需要修改线上环境，请在environment中对应修改。这些文件通过初始化脚本init.php生成覆盖（拉下代码后，执行php init.php）
 
-* 将projectroot/frontend/web配置为服务器的webroot，所有的代码文件不放在web里面，这样相对安全些。
 * vendors通过composer来管理，其他人以源代码的形式拉取vendor里面的内容。
 
 # 本地开始
@@ -98,8 +97,12 @@
 * `@srvs` => `common/srvs`
 * `@modules` => 针对frontend，为`frontend/modules/`；针对backend，为`backend/modules/`
 
-* `@modulename`，针对某模块内部引用，采用`@modulename`直接引用。如果跨模块，请`@modules\modulename`方式。
+* `@modulename`，针对某模块内部引用，采用`@modulename`直接引用。如果跨模块，请`@modules\modulename`方式，此alias在模块的`Module.php`里面手动增加。
+
+
 # 提交代码
 
 * git pull 拖取最新版本的代码
 * git push 将本地代码提交到仓库
+
+# FAQ
