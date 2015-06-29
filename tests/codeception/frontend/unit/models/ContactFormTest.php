@@ -4,7 +4,7 @@ namespace tests\codeception\frontend\unit\models;
 
 use Yii;
 use tests\codeception\frontend\unit\TestCase;
-use frontend\models\ContactForm;
+use demo\models\ContactForm;
 
 class ContactFormTest extends TestCase
 {
@@ -21,7 +21,7 @@ class ContactFormTest extends TestCase
 
     protected function tearDown()
     {
-        unlink($this->getMessageFile());
+//         unlink($this->getMessageFile());
         parent::tearDown();
     }
 
@@ -36,20 +36,21 @@ class ContactFormTest extends TestCase
             'body' => 'body of current message',
         ];
 
-        $model->sendEmail('admin@example.com');
+        //邮件功能被移除
+//         $model->sendEmail('admin@example.com');
 
-        $this->specify('email should be send', function () {
-            expect('email file should exist', file_exists($this->getMessageFile()))->true();
-        });
+//         $this->specify('email should be send', function () {
+//             expect('email file should exist', file_exists($this->getMessageFile()))->true();
+//         });
 
-        $this->specify('message should contain correct data', function () use ($model) {
-            $emailMessage = file_get_contents($this->getMessageFile());
+//         $this->specify('message should contain correct data', function () use ($model) {
+//             $emailMessage = file_get_contents($this->getMessageFile());
 
-            expect('email should contain user name', $emailMessage)->contains($model->name);
-            expect('email should contain sender email', $emailMessage)->contains($model->email);
-            expect('email should contain subject', $emailMessage)->contains($model->subject);
-            expect('email should contain body', $emailMessage)->contains($model->body);
-        });
+//             expect('email should contain user name', $emailMessage)->contains($model->name);
+//             expect('email should contain sender email', $emailMessage)->contains($model->email);
+//             expect('email should contain subject', $emailMessage)->contains($model->subject);
+//             expect('email should contain body', $emailMessage)->contains($model->body);
+//         });
     }
 
     private function getMessageFile()
