@@ -44,7 +44,6 @@ class SignupForm extends Model
     public function signup()
     {
         if ($this->validate()) {
-            \Yii::$app->session->setFlash('success', '注册成功');
             $user = new User();
             $user->username = $this->username;
             $user->email = $this->email;

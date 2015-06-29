@@ -36,7 +36,7 @@ class SignupFormTest extends DbTestCase
             'email' => 'nicolas.dianna@hotmail.com',
             'password' => 'some_password',
         ]);
-
+        
         expect('username and email are in use, user should not be created', $model->signup())->null();
     }
 

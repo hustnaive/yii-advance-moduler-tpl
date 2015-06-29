@@ -57,8 +57,8 @@
 				|-- ...		
 			|-- prod/						生产/预发布环境配置目录
 				|-- ..
-			|-- conf.php					环境配置文件
-		|-- vendor/						第三方依赖（通过composer管理）
+			|-- index.php					环境配置文件
+		|-- vendor/							第三方依赖（通过composer管理）
 				|-- yiisoft/		
 						|-- yii2/			yii2的官方库
 						|-- yii2-debugger/
@@ -71,7 +71,7 @@
 		|-- READEME.md
 
 # 注
-* 前后端分离，前端功能（微信，轻应用）相关的代码逻辑置于frontend下面，后端管理（后台管理，配置）相关的代码逻辑置于backend下面。frontend/web,backend/web需要分别配置。
+* 前后端分离，前端功能（微信，轻应用）相关的代码逻辑置于frontend下面，后端管理（后台管理，配置）相关的代码逻辑置于backend下面。frontend/web,backend/web需要分别配置到webroot下。
 * 所有的环境相关代码（*-local.php）在代码结构里面不入版本库，由environment统一管理，如果需要修改线上环境，请在environment中对应修改。这些文件通过初始化脚本init.php生成覆盖（拉下代码后，执行php init.php）
 
 * vendors通过composer来管理，其他人以源代码的形式拉取vendor里面的内容。
@@ -81,13 +81,15 @@
 * PHP版本，5.5.15（ 推荐xampp-1.8.3：<http://sourceforge.net/projects/xampp/files/> ）
 * 安装git（ 推荐msysgit：<http://msysgit.github.io/> ）
 * 安装ZendStudio或者其他IDE
-* 执行init.bat脚本文件，该脚本依序如下步骤
+
+* `git clone git@github.com:hustnaive/yii-advanced-modular-tpl.git ./` 将本仓库clone到本地。
+* 执行`init.bat`脚本文件，该脚本依序执行如下操作：
 	* `git clone git@github.com:hustnaive/yii-advanced-modular-vendor.git vendor` 拖取公用依赖包到项目下的vendor目录。
 	* `php requirement.php` 验证扩展，依赖是否存在。
 	* `php init` 执行php环境的初始化。
 * 将 `backend/web` 和 `frontend/web` 分别配置到你的webroot下
 * 修改`common/config/db-local.php`，将数据库配置成你自己的（参考db.php）
-* `yii migrate` 执行数据库迁移
+* `yii migrate` 执行数据库迁移任务（console/migrations）
 
 # 命名空间
 
@@ -99,14 +101,47 @@
 * `@srvs` => `common/srvs`
 * `@modules` => 针对frontend，为`frontend/modules/`；针对backend，为`backend/modules/`
 
-* `@modulename`，针对某模块内部引用，采用`@modulename`直接引用。如果跨模块，请`@modules\modulename`方式，此alias在模块的`Module.php`里面手动增加。
-
-
-# 提交代码
-
-* git pull 拖取最新版本的代码
-* git push 将本地代码提交到仓库
+* `@modulename` 针对某模块内部引用，采用`@modulename`直接引用。如果跨模块，请`@modules\modulename`方式，此alias在模块的`Module.php`里面手动增加。
 
 # 测试
+
+本框架基于CodeCeption进行单元测试和功能测试。关于CodeCeption的介绍见：<https://github.com/hustnaive/Codeception>。
+
+要想本地成功运行测试，你需要安装composer，并在全局安装CodeCeption框架和Yii 2 faker。
+
+安装composer的指导文档见：<http://docs.phpcomposer.com/00-intro.html#Downloading-the-Composer-Executable>
+
+composer安装成功后，在项目根目录执行如下命令安装CodeCeption。
+
+	composer global require "codeception/codeception=2.0.*"
+	composer global require "codeception/specify=*"
+	composer global require "codeception/verify=*"
+	composer require --dev yiisoft/yii2-faker:*
+
+## 运行测试
+
+在运行测试之前，需要修改`tests/codeception/*`目录中的配置文件，将端口，路径什么的修改为本地的配置。具体修改点如下：
+
+* 修改`tests/codeception/backend/acceptance.suite.yml`中的`url`字段
+* 修改`tests/codeception/backend/codeception.yml`中的`test_entry_url`字段
+* 修改`tests/codeception/common/_bootstrap.php`中的`$_SERVER`
+* 修改`tests/codeception/frontend/acceptance.suite.yml`中的`url`字段
+* 修改`tests/codeception/frontend/codeception.yml`中的`test_entry_url`字段
+
+修改了对应配置后，还需要在本地创建`yii2_advanced_test`库用于测试。
+
+`tests/codeception/backend`和`tests/codeceptin/frontend`里面分别是针对后台和前端模块的的测试代码。
+
+其中，前后端测试又区分单元测试和功能测试代码，分别放在`tests/codeception/*end/unit/modulename`和`tests/codeception/*end/functional/modulename`下面，目前不关注acceptance。
+
+## 单元测试
+
+单元测试代码置于`tests/codeception/*end/unit/modulename`目录。
+
+
+
+
+
+## 功能测试
 
 # FAQ
