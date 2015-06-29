@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\codeception\frontend\unit\models;
+namespace tests\codeception\frontend\unit\demo;
 
 use tests\codeception\frontend\unit\DbTestCase;
 use tests\codeception\common\fixtures\UserFixture;

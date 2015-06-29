@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\codeception\frontend\unit\models;
+namespace tests\codeception\frontend\unit\demo;
 
 use Yii;
 use tests\codeception\frontend\unit\TestCase;

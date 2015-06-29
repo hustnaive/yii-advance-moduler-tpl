@@ -2,7 +2,7 @@
 
 namespace tests\codeception\frontend\acceptance;
 
-use tests\codeception\frontend\_pages\SignupPage;
+use tests\codeception\frontend\_pages\demo\SignupPage;
 use common\models\User;
 
 class SignupCest

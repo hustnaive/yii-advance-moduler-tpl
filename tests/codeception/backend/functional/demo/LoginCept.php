@@ -1,10 +1,11 @@
 <?php
-use tests\codeception\frontend\AcceptanceTester;
-use tests\codeception\common\_pages\LoginPage;
+
+use tests\codeception\backend\FunctionalTester;
+use tests\codeception\common\_pages\common\LoginPage;
 
 /* @var $scenario Codeception\Scenario */
 
-$I = new AcceptanceTester($scenario);
+$I = new FunctionalTester($scenario);
 $I->wantTo('ensure login page works');
 
 $loginPage = LoginPage::openBy($I);
@@ -27,8 +28,3 @@ $I->expectTo('see that user is logged');
 $I->seeLink('Logout (erau)');
 $I->dontSeeLink('Login');
 $I->dontSeeLink('Signup');
-/** Uncomment if using WebDriver
- * $I->click('Logout (erau)');
- * $I->dontSeeLink('Logout (erau)');
- * $I->seeLink('Login');
- */
