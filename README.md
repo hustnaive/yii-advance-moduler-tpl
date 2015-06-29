@@ -7,8 +7,6 @@
 				|-- bootstrap.php		启动时需要执行的引导动作
 				|-- web.php				web配置文件（线上生产/预发布）
 				|-- web-local.php		web本地配置文件
-				|-- db.php				数据库配置
-				|-- db-local.php		数据库本地配置
 				|-- modules.php			模块配置文件
 				|-- params.php			公用参数配置文件
 				|-- params-local.php	本地公用参数配置
@@ -39,6 +37,8 @@
 				|-- .htaccess				apache的rewrite规则
 		|-- common/							通用目录
 			|-- config/						通用配置目录
+				|-- db.php					数据库配置
+				|-- db-local.php			数据库本地配置
 			|-- dals/						dals层目录
 				|-- logic1/					业务1dal逻辑
 				|-- ...
@@ -86,6 +86,8 @@
 	* `php requirement.php` 验证扩展，依赖是否存在。
 	* `php init` 执行php环境的初始化。
 * 将 `backend/web` 和 `frontend/web` 分别配置到你的webroot下
+* 修改`common/config/db-local.php`，将数据库配置成你自己的（参考db.php）
+* `yii migrate` 执行数据库迁移
 
 # 命名空间
 
@@ -104,5 +106,7 @@
 
 * git pull 拖取最新版本的代码
 * git push 将本地代码提交到仓库
+
+# 测试
 
 # FAQ
